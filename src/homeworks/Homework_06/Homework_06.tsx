@@ -1,5 +1,6 @@
 import "./styles.css";
 
+import {v4} from "uuid";
 
 function Homework_06 (){
 
@@ -17,10 +18,10 @@ function Homework_06 (){
         { brand: "Audi", price: 50000, isDiesel: true }
     ]
 
-    const carsCard = cars.map((car: Car, index: number )=>{
+    const carsCard = cars.map((car: Car)=>{
 
         return (
-            <div className="card" key={index}>
+            <div className="card" key={v4()}>
                 <h3>Brand: {car.brand}</h3>
                 <p>Price: {car.price}</p>
                 <p>Diesel: {car.isDiesel ? "Yes" : "No"}</p>
