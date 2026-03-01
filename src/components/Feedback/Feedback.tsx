@@ -4,7 +4,9 @@ import Button from "../Button/Button";
 
 import { type FeedbackProps } from "./types";
 
-import "./styles.css";
+// import "./styles.css";
+
+import {FeedbackWrapper, FeedbackControl, ButtonWithCountContainer, Count} from "./styles";
 
 function Feedback({like, dislike, onLike, onDislike, resetResults}:FeedbackProps) {
   // const [like, setLike] = useState(0); // Если мы ничего не передаем в качестве аргумента функции useState(), то 1 элемент массива, который эта функция возвращает === undefined
@@ -44,19 +46,19 @@ function Feedback({like, dislike, onLike, onDislike, resetResults}:FeedbackProps
   // };
 
   return (
-    <div className="feedback-wrapper">
-      <div className="feedback-control">
-        <div className="buttonwithcount-container">
+    <FeedbackWrapper>
+      <FeedbackControl>
+        <ButtonWithCountContainer>
           <Button name="Like" onClick={onLike} />
-          <p className="count">{like}</p>
-        </div>
-        <div className="buttonwithcount-container">
+          <Count>{like}</Count>
+        </ButtonWithCountContainer>
+        <ButtonWithCountContainer>
           <Button name="Dislike" onClick={onDislike} />
-          <p className="count">{dislike}</p>
-        </div>
-      </div>
+          <Count>{dislike}</Count>
+        </ButtonWithCountContainer>
+      </FeedbackControl>
       <Button name="Reset Results" onClick={resetResults} />
-    </div>
+    </FeedbackWrapper>
   );
 }
 
